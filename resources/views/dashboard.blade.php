@@ -36,6 +36,11 @@
                             </div>
                         @endforeach
                     @else
+                        @if(session()->has('error')) error
+                            <div class="px-4 py-3 leading-normal text-red-100 bg-red-700 rounded-lg" role="alert">
+                                <p>{{session()->get('error')}}</p>
+                            </div>
+                        @endif
                         <div class='flex items-center justify-center min-h-screen '>
                             <div class='w-full max-w-lg px-10 py-8 mx-auto bg-white rounded-lg shadow-xl'>
                                 <div class='max-w-md mx-auto space-y-6 text-black'>
@@ -45,11 +50,11 @@
                                         <h2 class="text-2xl font-bold ">Submit your application</h2>
                                         <hr class="my-6">
                                         <label class="uppercase text-sm text-black font-bold opacity-70">Subject</label>
-                                        <input type="text" name="subject" class="p-3 mt-2 mb-4 w-full bg-slate-200 rounded">
+                                        <input type="text" name="subject" class="p-3 mt-2 mb-4 w-full bg-slate-200 rounded" required>
                                         <label class="uppercase text-sm text-black font-bold opacity-70">Message</label>
-                                        <textarea rows="4" name="message" type="text" class="p-3 mt-2 mb-4 w-full bg-slate-200 rounded"></textarea>
+                                        <textarea rows="4" name="message" type="text" class="p-3 mt-2 mb-4 w-full bg-slate-200 rounded" required></textarea>
                                         <label class="uppercase text-sm text-black font-bold opacity-70">File</label>
-                                        <input type="file" name="file" class="p-3 mt-2 mb-4 w-full bg-slate-200 rounded text-black">
+                                        <input type="file" name="file" class="p-3 mt-2 mb-4 w-full bg-slate-200 rounded text-black" required>
                                         <input type="submit" class="py-3 px-6 my-2 bg-emerald-500 text-white font-medium rounded hover:bg-indigo-500 cursor-pointer ease-in-out duration-300" value="Send">
                                     </form>
 
